@@ -58,3 +58,19 @@ desktop.ini
 production/
 .vercel
 .env*
+
+# Internal docs: kept locally, not published
+AGENTS.md
+CLAUDE.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+PLAN.md
+PRIVACY.md
+PRODUCT.md
+RESEARCH.md
+SECURITY.md
+SETUP.md
+SYSTEM-DESIGN.md
+UI-REFERENCES.md
+apps/web/AGENTS.md
+apps/web/README.md

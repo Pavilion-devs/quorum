@@ -156,7 +156,7 @@ When the host ends the meeting, everyone lands on the same **recap**.
 
 | Technology | How Quorum uses it |
 |---|---|
-| **[Mozaik](https://github.com/jigjoy-ai/mozaik)** (`@mozaik-ai/core` 4.1) | The heart. One runtime per meeting; every agent, human and observer is a Mozaik **participant**; agents react through **situation handlers** (event- *and* state-based); **interception** pauses tool calls for human approval and lets one agent stop another; **shared RuntimeState** carries locks, a loop semaphore and the token budget. We also harden it: loops never reject, handlers are isolated, fresh context per loop ([details](RESEARCH.md#runtime-behaviours-found-while-building-410--and-how-we-handle-them)). |
+| **[Mozaik](https://github.com/jigjoy-ai/mozaik)** (`@mozaik-ai/core` 4.1) | The heart. One runtime per meeting; every agent, human and observer is a Mozaik **participant**; agents react through **situation handlers** (event- *and* state-based); **interception** pauses tool calls for human approval and lets one agent stop another; **shared RuntimeState** carries locks, a loop semaphore and the token budget. We also harden it: loops never reject, handlers are isolated, fresh context per loop. |
 | **OpenAI** (and Anthropic, Gemini) | Model inference through Mozaik's provider layer. Fast models for frequent work, smart models for verdicts and challenges; automatic **cross-provider failover**, retries and timeouts; structured (schema-validated) outputs. |
 | **[Tavily](https://tavily.com)** | The Fact-Checker's `web_search` tool: focused queries, results with URLs the model must cite. |
 | **[mem0](https://mem0.ai)** | Team memory across meetings: the Archivist stores decisions and approved actions; the Memory Keeper searches them and flags contradictions. |
@@ -177,11 +177,11 @@ Three deployables, one repo:
 | `packages/protocol` | zod | The wire contract between browser and room server |
 | `packages/db` | Drizzle + Postgres | Schema and migrations |
 
-Deep dives: [ARCHITECTURE.md](ARCHITECTURE.md) · [SYSTEM-DESIGN.md](SYSTEM-DESIGN.md) · [RESEARCH.md](RESEARCH.md).
+Deep dive: [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Scale
 
-Measured on one process: **1,000 live sockets across 200 meetings, p95 event latency 37 ms, zero message loss** ([load test](apps/rooms/scripts/loadtest.ts)). Room servers scale horizontally with **rendezvous-hash routing** — no coordinator, adding a machine moves only ~1/N meetings. The real constraint at millions of users is model throughput and cost; the plan is in [SYSTEM-DESIGN.md](SYSTEM-DESIGN.md#4-capacity--the-real-bottleneck-is-model-throughput-and-cost).
+Measured on one process: **1,000 live sockets across 200 meetings, p95 event latency 37 ms, zero message loss** ([load test](apps/rooms/scripts/loadtest.ts)). Room servers scale horizontally with **rendezvous-hash routing** — no coordinator, adding a machine moves only ~1/N meetings. The real constraint at millions of users is model throughput and cost.
 
 ## Why it matters — especially in Africa
 
@@ -234,7 +234,7 @@ The end-to-end suite holds a full meeting in two real browsers: sign-up → room
 
 ## Deployment
 
-Database on **Neon**, room servers on **Fly.io**, web on **Vercel**. Step-by-step: [SETUP.md §5](SETUP.md). Docker image: [`apps/rooms/Dockerfile`](apps/rooms/Dockerfile). CI: [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
+Live at **[quorum.useroot.xyz](https://quorum.useroot.xyz)**: web on **Vercel**, the room server in Docker on a VPS behind HAProxy (HTTPS + WebSockets), database on **Neon**. A Fly.io config is also included ([`apps/rooms/fly.toml`](apps/rooms/fly.toml)). Docker image: [`apps/rooms/Dockerfile`](apps/rooms/Dockerfile). CI: [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 
 ## Project structure
 
@@ -291,12 +291,6 @@ quorum/
 - **Organisations** with shared team memory and admin controls
 - Redis (Upstash) room claims and shared rate limits for multi-region clusters
 
-## Contributing, security & privacy
-
-- [CONTRIBUTING.md](CONTRIBUTING.md) — how to set up, conventions, pull requests
-- [SECURITY.md](SECURITY.md) — reporting vulnerabilities, our security model
-- [PRIVACY.md](PRIVACY.md) — what we store, what we don't, your rights
-- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — how we treat each other
 
 ## License
 
