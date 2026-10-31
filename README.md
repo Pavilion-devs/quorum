@@ -22,6 +22,7 @@
 You need **Node 24+**, **pnpm 11+** and **one model key** (OpenAI, Anthropic or Gemini). A [Tavily](https://tavily.com) key turns on the Fact-Checker; without it, that agent switches itself off and says so.
 
 ```bash
+git clone https://github.com/Pavilion-devs/quorum && cd quorum
 pnpm install
 cp .env.example .env.local     # add OPENAI_API_KEY (or ANTHROPIC_API_KEY / GEMINI_API_KEY) + TAVILY_API_KEY
 pnpm demo
@@ -201,7 +202,7 @@ Measured on one process: **1,000 live sockets across 200 meetings, p95 event lat
 **Requirements:** Node 24+, pnpm 11+, Chrome or Edge (for live speech).
 
 ```bash
-git clone <this-repo> quorum && cd quorum
+git clone https://github.com/Pavilion-devs/quorum && cd quorum
 pnpm install
 cp .env.example .env.local          # then fill in keys (see below)
 pnpm db:local                       # terminal 1 — local Postgres (or use Neon)
