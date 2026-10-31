@@ -70,18 +70,9 @@ Other modes: `pnpm spike` (type the meeting yourself, approve with `/approve <id
 
 ## How the agents run concurrently
 
-```
-                            one Mozaik runtime per meeting  (defineRuntime<RoomState>())
-  utterance ──▶ bus ──┬──────────────┬────────────────┬───────────────┬─────────────────┬──────────────┐
-                      ▼              ▼                ▼               ▼                 ▼              ▼
-                   Scribe      Fact-Checker     Decision Tracker  Action Owner   Devil's Advocate  Memory Keeper
-                      │      (2 parallel checks)       │        (pauses for yes)  (state-triggered)    │
-                      └──────────────┴────────────────┴───────┬───────┴─────────────────┴──────────────┘
-                                                              ▼
-                 shared RoomState: claim locks · LLM semaphore · token budget · approval broker · store
-                                                              ▲
-                         Moderator (rules, no model): meters budget, applies verdicts, vetoes
-```
+<img src="apps/web/public/product/architecture.png" alt="Quorum architecture: inputs feed one Mozaik runtime per meeting; six agents react concurrently to the same events; they coordinate only through shared RoomState (claim locks, LLM semaphore, approval broker, token budget) with a rules-only Moderator that vetoes proposals built on refuted claims" width="100%" />
+
+<sub>Editable source: <a href="apps/web/public/product/architecture.excalidraw">architecture.excalidraw</a> (open it at excalidraw.com).</sub>
 
 **Nobody calls anybody.** Every agent is a Mozaik participant with its own **situation handlers**. Each one hears every event on the room's bus and decides for itself whether to act. Work runs as independent `runLoop`s, so several agents are mid-inference or mid-tool-call at once. The lane chart at the end of `pnpm demo` shows it.
 
