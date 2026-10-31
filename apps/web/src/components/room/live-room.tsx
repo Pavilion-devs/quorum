@@ -99,7 +99,7 @@ export function LiveRoom({ roomId, title }: { roomId: string; title: string }) {
 	return (
 		<div className="flex h-dvh flex-col bg-bg">
 			<header className="flex h-16 shrink-0 items-center gap-3 border-b border-border bg-surface px-3 sm:px-5">
-				<Link href="/dashboard" aria-label="Back to dashboard" className="grid size-9 place-items-center rounded-lg border border-border hover:bg-surface-2">
+				<Link href="/" aria-label="Back to dashboard" className="grid size-9 place-items-center rounded-lg border border-border hover:bg-surface-2">
 					<Logo className="size-4" />
 				</Link>
 				<div className="min-w-0 flex-1">
@@ -289,7 +289,7 @@ function RoomClosed({ reason, t }: { reason: string | null; t: Translate }) {
 				<div className="mt-7 flex justify-center gap-2">
 					<Button onClick={() => window.location.reload()}>{t("room.tryAgain")}</Button>
 					<Button asChild variant="secondary">
-						<Link href="/dashboard">{t("room.dashboard")}</Link>
+						<Link href="/">{t("room.dashboard")}</Link>
 					</Button>
 				</div>
 			</div>

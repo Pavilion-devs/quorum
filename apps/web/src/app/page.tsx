@@ -43,7 +43,7 @@ export default function Landing() {
 						</p>
 						<div className="flex flex-wrap items-center gap-3 sm:justify-end">
 							<Button asChild size="lg">
-								<Link href="/sign-up">
+								<Link href="/start">
 									Start a meeting <ArrowRight />
 								</Link>
 							</Button>
@@ -143,8 +143,8 @@ export default function Landing() {
 						</h2>
 						<div className="mt-10 flex flex-wrap items-center gap-4">
 							<Button asChild size="lg" variant="accent">
-								<Link href="/sign-up">
-									Create a free room <ArrowRight />
+								<Link href="/start">
+									Start a meeting <ArrowRight />
 								</Link>
 							</Button>
 							<span className="text-[14px] text-white/60">No download. Works in Chrome and Edge.</span>

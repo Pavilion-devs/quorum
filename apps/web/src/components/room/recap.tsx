@@ -28,7 +28,7 @@ export function Recap({ title, endedAt, view }: { title: string; endedAt: Date |
 					<div className="flex gap-2">
 						{view && <CopyMarkdownButton markdown={recapMarkdown(title, view)} />}
 						<Button asChild size="sm" variant="ghost">
-							<Link href="/dashboard">Dashboard</Link>
+							<Link href="/">Dashboard</Link>
 						</Button>
 					</div>
 				</div>

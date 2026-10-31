@@ -36,13 +36,8 @@ async function SessionActions() {
 		)
 	}
 	return (
-		<>
-			<Button asChild size="sm" variant="ghost">
-				<Link href="/sign-in">Sign in</Link>
-			</Button>
-			<Button asChild size="sm">
-				<Link href="/sign-up">Get started</Link>
-			</Button>
-		</>
+		<Button asChild size="sm">
+			<Link href="/start">Start a meeting</Link>
+		</Button>
 	)
 }
