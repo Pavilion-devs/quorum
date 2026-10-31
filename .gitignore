@@ -56,3 +56,5 @@ desktop.ini
 
 # Local-only launch assets: kept out of GitHub
 production/
+.vercel
+.env*

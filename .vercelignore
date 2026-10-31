@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+.audit
+**/node_modules
+**/.next
+**/dist
+.turbo
