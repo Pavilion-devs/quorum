@@ -11,7 +11,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6.svg)](tsconfig.base.json)
 [![Track](https://img.shields.io/badge/JigJoy%20%C3%97%20NTP%20Novi%20Sad-Freestyle-e8590c.svg)](#)
 
-**[▶ Watch the demo (100 s, with voiceover)](apps/web/public/product/quorum-demo.mp4)**
+**[▶ Try it live: quorum.useroot.xyz](https://quorum.useroot.xyz/start)** (no account, just a name) · **[Watch the demo](https://youtu.be/i4kCABSqXzw)**
 
 <img src="apps/web/public/product/room.png" alt="A live Quorum meeting: transcript, five agents working, fact-checks, decisions and approved action items" width="100%" />
 
