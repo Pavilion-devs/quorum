@@ -11,7 +11,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6.svg)](tsconfig.base.json)
 [![Track](https://img.shields.io/badge/JigJoy%20%C3%97%20NTP%20Novi%20Sad-Freestyle-e8590c.svg)](#)
 
-**[▶ Watch the 90-second demo](apps/web/public/product/quorum-demo.mp4)**
+**[▶ Watch the demo (100 s, with voiceover)](apps/web/public/product/quorum-demo.mp4)**
 
 <img src="apps/web/public/product/room.png" alt="A live Quorum meeting: transcript, five agents working, fact-checks, decisions and approved action items" width="100%" />
 
